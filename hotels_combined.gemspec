@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = HotelsCombined::VERSION
 
   gem.add_development_dependency "rspec", "~> 2.11.0"
+  gem.add_runtime_dependency "httparty", "~> 0.9.0"
 end
