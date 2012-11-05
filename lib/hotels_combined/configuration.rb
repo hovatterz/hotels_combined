@@ -9,10 +9,11 @@ module HotelsCombined
   end
 
   class Configuration
-    attr_accessor :api_key
+    attr_accessor :api_key, :env
 
     def initialize
       @api_key = "CHANGE ME"
+      @env = "development"
     end
   end
 end
