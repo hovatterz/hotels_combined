@@ -17,4 +17,5 @@ module HotelsCombined
   end
 end
 
+require "hotels_combined/hotel"
 require "hotels_combined/rate"
