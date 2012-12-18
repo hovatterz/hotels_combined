@@ -1,4 +1,4 @@
-require "httparty"
+require "net/http"
 require "nokogiri"
 
 require "hotels_combined/version"
