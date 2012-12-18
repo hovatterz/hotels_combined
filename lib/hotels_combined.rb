@@ -1,4 +1,5 @@
 require "httparty"
+require "nokogiri"
 
 require "hotels_combined/version"
 require "hotels_combined/configuration"
@@ -15,3 +16,5 @@ module HotelsCombined
     end
   end
 end
+
+require "hotels_combined/rate"
