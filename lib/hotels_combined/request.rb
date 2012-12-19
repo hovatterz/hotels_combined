@@ -24,6 +24,12 @@ module HotelsCombined
       xml_doc = Nokogiri::XML(response.body)
       xml_doc.remove_namespaces!
 
+      if xml_doc.xpath("//Fault").count > 0
+        error = xml_doc.at_xpath(".//Fault/Reason/Text").text
+        raise(HotelsCombined.const_get(error.gsub("Error", "") + "Error"),
+              "Fault: #{xml_doc.at_xpath(".//Fault/Code/Value").text}")
+      end
+
       xml_doc.xpath("//Hotel").map {|node|
         hotel = Hotel.from_xml(node)
         hotel.rates = node.xpath(".//Rate").map {|rate_node|
