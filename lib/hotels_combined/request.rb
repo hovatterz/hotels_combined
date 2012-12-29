@@ -12,7 +12,7 @@ module HotelsCombined
       request_params["UserAgent"] = params[:user_agent]
       request_params["ApiKey"] = HotelsCombined.configuration.api_key
 
-      http_params = request_params.map {|key, value| "#{key}=#{value}" }.join("&")
+      http_params = request_params.map {|key, value| "#{key}=#{URI::encode(value.to_s)}" }.join("&")
 
       url = URI.parse("#{HotelsCombined.base_url}CitySearch?#{http_params}")
 
