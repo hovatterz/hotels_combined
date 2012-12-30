@@ -3,8 +3,8 @@ module HotelsCombined
     describe ".city_search" do
       let(:parameters) {
         { :city_id => 1948,
-          :arrival => "2013-01-01",
-          :departure => "2013-01-02",
+          :arrival => "01/01/2013",
+          :departure => "01/02/2013",
           :guests => 2,
           :rooms => 1,
           :user_id => 504,

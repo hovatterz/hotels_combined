@@ -3,8 +3,8 @@ module HotelsCombined
     def self.city_search(params)
       request_params = Hash.new
       request_params["CityID"] = params[:city_id]
-      request_params["Checkin"] = params[:arrival]
-      request_params["Checkout"] = params[:departure]
+      request_params["Checkin"] = format_date(params[:arrival])
+      request_params["Checkout"] = format_date(params[:departure])
       request_params["Guests"] = params[:guests]
       request_params["Rooms"] = params[:rooms]
       request_params["UserID"] = params[:user_id]
@@ -37,6 +37,12 @@ module HotelsCombined
         }
         hotel
       }
+    end
+
+    private
+
+    def self.format_date(date)
+      Chronic.parse(date).strftime("%Y-%m-%d")
     end
   end
 end

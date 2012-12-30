@@ -19,4 +19,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "vcr", "~> 2.3.0"
   gem.add_development_dependency "webmock", "~> 1.8.0"
   gem.add_runtime_dependency "nokogiri", "~> 1.5.5"
+  gem.add_runtime_dependency "chronic", "~> 0.9.0"
 end

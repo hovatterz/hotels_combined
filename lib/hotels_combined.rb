@@ -1,5 +1,6 @@
 require "net/http"
 require "nokogiri"
+require "chronic"
 
 require "hotels_combined/version"
 require "hotels_combined/configuration"
