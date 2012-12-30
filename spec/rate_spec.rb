@@ -22,6 +22,7 @@ XML
         rate.taxes.should == 22
         rate.currency.should == "USD"
         rate.provider.should == "SKH"
+        rate.key.should == "0.3209499.1653332.-1056783794..820654902"
       end
     end
   end
