@@ -3,14 +3,15 @@ module HotelsCombined
     def self.city_search(params)
       request_params = Hash.new
       request_params["CityID"] = params[:city_id]
-      request_params["Checkin"] = format_date(params[:arrival])
-      request_params["Checkout"] = format_date(params[:departure])
+      request_params["Checkin"] = format_date(params[:checkin])
+      request_params["Checkout"] = format_date(params[:checkout])
       request_params["Guests"] = params[:guests]
       request_params["Rooms"] = params[:rooms]
       request_params["UserID"] = params[:user_id]
       request_params["UserIPAddress"] = params[:user_ip_address]
       request_params["UserAgent"] = params[:user_agent]
       request_params["ApiKey"] = HotelsCombined.configuration.api_key
+      request_params["PageSize"] = params[:page_size]
 
       http_params = request_params.map {|key, value| "#{key}=#{URI::encode(value.to_s)}" }.join("&")
 
