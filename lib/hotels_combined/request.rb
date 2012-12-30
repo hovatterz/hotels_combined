@@ -43,6 +43,7 @@ module HotelsCombined
     private
 
     def self.format_date(date)
+      raise ArgumentError, "Date is required" if date.nil?
       Chronic.parse(date).strftime("%Y-%m-%d")
     end
   end
