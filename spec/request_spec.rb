@@ -9,7 +9,7 @@ module HotelsCombined
           :rooms => 1,
           :user_id => 504,
           :user_ip_address => "71.88.163.187",
-          :user_agent => "Firefox" }
+          :user_agent => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.101 Safari/537.11" }
       }
 
       context "given valid parameters" do
