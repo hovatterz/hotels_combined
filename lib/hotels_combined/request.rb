@@ -11,7 +11,7 @@ module HotelsCombined
       request_params["UserIPAddress"] = params[:user_ip_address]
       request_params["UserAgent"] = params[:user_agent]
       request_params["ApiKey"] = HotelsCombined.configuration.api_key
-      request_params["PageSize"] = params[:page_size]
+      request_params["PageSize"] = params[:page_size] if params[:page_size]
 
       http_params = request_params.map {|key, value| "#{key}=#{URI::encode(value.to_s)}" }.join("&")
 
