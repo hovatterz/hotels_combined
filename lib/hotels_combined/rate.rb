@@ -8,6 +8,10 @@ module HotelsCombined
       end
     end
 
+    def supplier_link(splash = false, label = "")
+      @supplier_link ||= "#{HotelsCombined.configuration.private_branding_url}ProviderRedirect.aspx?Key=#{key}&Label=#{label}&Splash=#{splash}"
+    end
+
     def self.from_xml(node)
       Rate.new({
         :price => node.at_xpath(".//ConvertedPrice").text.to_f,

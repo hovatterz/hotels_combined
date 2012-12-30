@@ -15,14 +15,21 @@ XML
       Nokogiri::XML(xml)
     }
 
+    let(:subject) { Rate.from_xml(xml) }
+
     describe ".from_xml" do
       it "returns a new Rate based on the given data" do
-        rate = Rate.from_xml(xml)
-        rate.price.should == 112
-        rate.taxes.should == 22
-        rate.currency.should == "USD"
-        rate.provider.should == "SKH"
-        rate.key.should == "0.3209499.1653332.-1056783794..820654902"
+        subject.price.should == 112
+        subject.taxes.should == 22
+        subject.currency.should == "USD"
+        subject.provider.should == "SKH"
+        subject.key.should == "0.3209499.1653332.-1056783794..820654902"
+      end
+    end
+
+    describe "#supplier_link" do
+      it "returns a supplier link" do
+        subject.supplier_link(true, "ABC123").should == "#{HotelsCombined.configuration.private_branding_url}ProviderRedirect.aspx?Key=#{subject.key}&Label=ABC123&Splash=true"
       end
     end
   end
