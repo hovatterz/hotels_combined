@@ -9,12 +9,13 @@ module HotelsCombined
   end
 
   class Configuration
-    attr_accessor :api_key, :env, :private_branding_url
+    attr_accessor :api_key, :env, :affiliate_id, :brand_id
 
     def initialize
       @api_key = "CHANGE ME"
       @env = "development"
-      @private_branding_url = "CHANGE ME"
+      @affiliate_id = "CHANGE ME"
+      @brand_id = "CHANGE ME"
     end
 
     def api_key

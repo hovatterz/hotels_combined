@@ -9,7 +9,7 @@ module HotelsCombined
     end
 
     def supplier_link(splash = false, label = "")
-      @supplier_link ||= "#{HotelsCombined.configuration.private_branding_url}ProviderRedirect.aspx?Key=#{key}&Label=#{label}&Splash=#{splash}"
+      @supplier_link ||= "http://brands.datahc.com/ProviderRedirect.aspx?Key=#{key}&Label=#{label}&Splash=#{splash}&a_aid=#{HotelsCombined.configuration.affiliate_id}&brandid=#{HotelsCombined.configuration.brand_id}"
     end
 
     def self.from_xml(node)

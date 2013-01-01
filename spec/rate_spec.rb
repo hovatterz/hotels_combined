@@ -29,7 +29,7 @@ XML
 
     describe "#supplier_link" do
       it "returns a supplier link" do
-        subject.supplier_link(true, "ABC123").should == "#{HotelsCombined.configuration.private_branding_url}ProviderRedirect.aspx?Key=#{subject.key}&Label=ABC123&Splash=true"
+        subject.supplier_link(true, "ABC123").should == "http://brands.datahc.com/ProviderRedirect.aspx?Key=#{subject.key}&Label=ABC123&Splash=true&a_aid=#{HotelsCombined.configuration.affiliate_id}&brandid=#{HotelsCombined.configuration.brand_id}"
       end
     end
   end
