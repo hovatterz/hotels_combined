@@ -3,8 +3,8 @@ module HotelsCombined
     describe ".city_search" do
       let(:parameters) {
         { :city_id => 1948,
-          :checkin => "01/01/2013",
-          :checkout => "01/02/2013",
+          :checkin => Chronic.parse("today").strftime("%m/%d/%Y"),
+          :checkout => Chronic.parse("tomorrow").strftime("%m/%d/%Y"),
           :guests => 2,
           :rooms => 1,
           :user_id => 504,
