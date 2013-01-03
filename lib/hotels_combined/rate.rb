@@ -1,11 +1,14 @@
 module HotelsCombined
   class Rate
-    attr_accessor :currency, :key, :price, :provider, :taxes
+    attr_accessor :currency, :key, :price, :provider, :provider_name,
+      :taxes
 
     def initialize(data)
       data.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
+
+      @provider_name = PROVIDERS[provider]
     end
 
     def supplier_link(splash = false, label = "")

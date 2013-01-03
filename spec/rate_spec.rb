@@ -23,6 +23,7 @@ XML
         subject.taxes.should == 22
         subject.currency.should == "USD"
         subject.provider.should == "SKH"
+        subject.provider_name.should == PROVIDERS["SKH"]
         subject.key.should == "0.3209499.1653332.-1056783794..820654902"
       end
     end
