@@ -1,5 +1,17 @@
 module HotelsCombined
   class Request
+    def self.hotel_search(options)
+      request_params = map_params(options)
+      request_params["HotelID"] = options[:hotel_id]
+
+      response = make_request(request_url("HotelSearch", request_params))
+
+      xml_doc = parse_response(decompress_response(response))
+      xml_doc.xpath("//Rate").map {|node|
+        Rate.from_xml(node)
+      }
+    end
+
     def self.city_search(options)
       request_params = map_params(options)
       request_params["CityID"] = options[:city_id]
