@@ -22,7 +22,7 @@ module HotelsCombined
         http.request(request)
       end
 
-      xml_doc = Nokogiri::XML(response.body)
+      xml_doc = Nokogiri::XML(decompress_response(response))
       xml_doc.remove_namespaces!
 
       if xml_doc.xpath("//Fault").count > 0
@@ -45,6 +45,14 @@ module HotelsCombined
     def self.format_date(date)
       raise ArgumentError, "Date is required" if date.nil?
       Chronic.parse(date).strftime("%Y-%m-%d")
+    end
+
+    def self.decompress_response(response)
+      if response.header["Content-Encoding"] == "gzip"
+        Zlib::GzipReader.new(StringIO.new(response.body)).read()
+      else
+        response.body
+      end
     end
   end
 end
